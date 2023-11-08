@@ -1,0 +1,9 @@
+.__script_popover_row > * {
+  padding: 0 0.5em;
+}
+.__script_popover_row:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+.__script_label {
+  color: var(--font-color);
+}

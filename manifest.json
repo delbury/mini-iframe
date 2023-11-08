@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "mini iframe",
+  "version": "0.0.1",
+  "icons": {
+    "64": "icon64.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content.js"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/service.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "mini iframe options",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "rules_1",
+        "path": "rules/rules_response_header.json",
+        "enabled": true
+      },
+      {
+        "id": "rules_2",
+        "path": "rules/rules_request.json",
+        "enabled": false
+      }
+    ]
+  }
+}
